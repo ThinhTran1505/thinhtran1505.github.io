@@ -369,9 +369,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeWriterElement = document.querySelector('.typewriter-text');
     if (typeWriterElement) {
         const phrases = [
-            "Incoming Research Scientist Intern @ Adobe",
-            "CS Ph.D. Student @ Stony Brook University",
-            "Vision & Robotics Researcher",
+            "Your Role @ Your School",
+            "Your Interest",
         ];
 
         let phraseIndex = 0;
@@ -435,8 +434,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 10. Tracking Page Live Data
     const trackingSection = document.getElementById('tracking');
     if (trackingSection) {
-        const githubUser = (trackingSection.getAttribute('data-github-user') || 'nero1342').trim();
-        const leetcodeUser = (trackingSection.getAttribute('data-leetcode-user') || 'nero1342').trim();
+        const githubUser = (trackingSection.getAttribute('data-github-user') || '').trim();
+        const leetcodeUser = (trackingSection.getAttribute('data-leetcode-user') || '').trim();
 
         const updateText = (id, value) => {
             const el = document.getElementById(id);
