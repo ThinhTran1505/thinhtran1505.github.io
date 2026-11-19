@@ -369,8 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeWriterElement = document.querySelector('.typewriter-text');
     if (typeWriterElement) {
         const phrases = [
-            "Your Role @ Your School",
-            "Your Interest",
+            "AI / Machine Learning Enthusiast",
+            "Computer Vision Developer",
+            "Competitive Programmer (ICPC)",
         ];
 
         let phraseIndex = 0;

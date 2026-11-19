@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/favicon.png">
-  <title>Your Name | Publications</title>
-  <meta name="description" content="Personal website of Your Name.">
+  <title>Tran Hung Thinh | Projects</title>
+  <meta name="description" content="Personal website of Tran Hung Thinh.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -422,19 +422,18 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="./" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
-        <img src="images/me.png" alt="Your Name"
+        <img src="images/me.png" alt="Tran Hung Thinh"
             style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
             onerror="this.style.display='none'">
-        <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">Your Name</span>
+        <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">Tran Hung Thinh</span>
       </a>
       
       <ul class="nav-links">
         <li><a href="./">About</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="experience.html">Experience</a></li>
-        <li><a href="publication.html" class="active">Publications</a></li>
+        <li><a href="publication.html" class="active">Projects</a></li>
         <li><a href="awards.html">Awards</a></li>
-        <li><a href="tracking.html">Tracking</a></li>
       </ul>
 
       <div style="display:flex;align-items:center;gap:0.6rem;">
@@ -453,52 +452,80 @@
     <section class="section reveal active particle-section" style="position: relative; overflow: visible; isolation: isolate;">
       <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
       <div class="research-header" style="margin-top: 2rem;">
-        <h1 class="text-gradient">Publications</h1>
+        <h1 class="text-gradient">Projects</h1>
         <p style="color: var(--text-muted); max-width: 700px; margin: 1rem auto 0;">
-          Use search, venue, and year filters to navigate quickly.
+          Use search, category, and year filters to navigate quickly.
         </p>
       </div>
 
       <div class="tool-row">
         <div class="search-box">
           <i class="fas fa-search search-icon"></i>
-          <input id="searchInput" class="search-input" type="text" placeholder="Search title, authors, venue, or keyword...">
+          <input id="searchInput" class="search-input" type="text" placeholder="Search title, technology, or keyword...">
         </div>
-        <div class="result-counter" id="resultCounter">1 publication</div>
+        <div class="result-counter" id="resultCounter">3 projects</div>
       </div>
 
       <div class="filter-group" id="typeFilter">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="Conference">Conference</button>
+        <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
+        <button class="filter-btn" data-filter="Mobile App">Mobile App</button>
       </div>
 
       <div class="filter-group" id="yearFilter">
         <button class="filter-btn active" data-year="all">All Years</button>
-        <button class="filter-btn" data-year="2026">2026</button>
+        <button class="filter-btn" data-year="2025">2025</button>
+        <button class="filter-btn" data-year="2024">2024</button>
+        <button class="filter-btn" data-year="2023">2023</button>
       </div>
 
       <div class="research-grid" id="researchGrid">
-        <div class="year-divider" data-year="2026"><span class="year-label">2026</span></div>
-        <article class="research-item" data-type="Conference" data-year="2026" data-authors="Your Name|Co-author" data-text="paper title your name co-author conference 2026">
+        <div class="year-divider" data-year="2025"><span class="year-label">2025</span></div>
+        <article class="research-item" data-type="Computer Vision" data-year="2025" data-text="end-to-end ai system for in-vehicle safety graduation thesis computer vision computer vision system on an orange pi 5 that prevents in-vehicle child heatstroke, from model research to a working proof-of-concept. optimized yolov11n with pytorch and onnx to reach real-time performance ( 18 fps) at 40.73% map.">
           <div class="res-head">
-            <h3 class="res-title">Paper Title</h3>
-            <span class="res-badge">Venue 2026</span>
+            <h3 class="res-title">End-to-End AI System for In-Vehicle Safety</h3>
+            <span class="res-badge">Graduation Thesis</span>
           </div>
-          <p class="res-authors"><strong>Your Name</strong>, Co-author</p>
-          <p class="res-desc">One sentence describing the paper.</p>
+          <p class="res-authors">Dec 2024 - Jun 2025 &middot; Team member</p>
+          <p class="res-desc">Computer vision system on an Orange Pi 5 that prevents in-vehicle child heatstroke, from model research to a working proof-of-concept. Optimized YOLOv11n with PyTorch and ONNX to reach real-time performance (&gt; 18 FPS) at 40.73% mAP.</p>
           <div class="res-links">
-            <a class="res-link primary" href="#" target="_blank" rel="noreferrer"><i class="fas fa-file-alt"></i>Paper</a>
-            <a class="res-link" href="#" target="_blank" rel="noreferrer"><i class="fab fa-github"></i>Code</a>
+            <a class="res-link primary" href="https://github.com/TranThinh2003/No-One-left-on-car-NOC" target="_blank" rel="noreferrer"><i class="fab fa-github"></i>Code</a>
+          </div>
+        </article>
+
+        <div class="year-divider" data-year="2024"><span class="year-label">2024</span></div>
+        <article class="research-item" data-type="Mobile App" data-year="2024" data-text="ai skin analysis app google ai developer challenge mobile app mobile app that detects facial skin issues with the gemini api, then queries firebase to recommend suitable skincare products in real time.">
+          <div class="res-head">
+            <h3 class="res-title">AI Skin Analysis App</h3>
+            <span class="res-badge">Google AI Developer Challenge</span>
+          </div>
+          <p class="res-authors">Mar 2024 - May 2024 &middot; Team member</p>
+          <p class="res-desc">Mobile app that detects facial skin issues with the Gemini API, then queries Firebase to recommend suitable skincare products in real time.</p>
+          <div class="res-links">
+            <a class="res-link primary" href="https://github.com/TranThinh2003/Kosmelyn_App" target="_blank" rel="noreferrer"><i class="fab fa-github"></i>Code</a>
+          </div>
+        </article>
+
+        <div class="year-divider" data-year="2023"><span class="year-label">2023</span></div>
+        <article class="research-item" data-type="Computer Vision" data-year="2023" data-text="vietnamese license plate recognition ai freelance computer vision vehicle and license plate detection with yolov8 (custom dataset training), paddleocr on onnxruntime + tensorrt for plate text, and deepsort for real-time tracking.">
+          <div class="res-head">
+            <h3 class="res-title">Vietnamese License Plate Recognition</h3>
+            <span class="res-badge">AI Freelance</span>
+          </div>
+          <p class="res-authors">Sep 2023 - Jan 2024 &middot; Team member</p>
+          <p class="res-desc">Vehicle and license plate detection with YOLOv8 (custom dataset training), PaddleOCR on ONNXRuntime + TensorRT for plate text, and DeepSORT for real-time tracking.</p>
+          <div class="res-links">
+            <a class="res-link primary" href="https://github.com/vlu-lantran/AI_project" target="_blank" rel="noreferrer"><i class="fab fa-github"></i>Code</a>
           </div>
         </article>
       </div>
 
-      <div class="empty-state" id="emptyState">No publications match your current search/filter.</div>
+      <div class="empty-state" id="emptyState">No projects match your current search/filter.</div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Your Name. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
+    <p>&copy; 2026 Tran Hung Thinh. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
   </footer>
 
   <script src="js/app.js"></script>
@@ -511,11 +538,11 @@
       const yearDividers = document.querySelectorAll('.year-divider');
       const counter = document.getElementById('resultCounter');
       const emptyState = document.getElementById('emptyState');
-      const selfAuthorName = 'Your Name';
+      const selfAuthorName = 'Tran Hung Thinh';
 
       // Central author directory: add/update links once here.
       const authorLinks = {
-        'Your Name': 'https://github.com/ThinhTran1505',
+        'Tran Hung Thinh': 'https://github.com/TranThinh2003',
       };
 
       function renderAuthors(item) {
@@ -640,7 +667,7 @@
           divider.style.display = hasVisibleInYear ? 'flex' : 'none';
         });
 
-        counter.textContent = `${visible} publication${visible === 1 ? '' : 's'}`;
+        counter.textContent = `${visible} project${visible === 1 ? '' : 's'}`;
         emptyState.style.display = visible ? 'none' : 'block';
       }
 
