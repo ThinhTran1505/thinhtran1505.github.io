@@ -4,84 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicon.png">
-    <title>Tran Hung Thinh | Experience</title>
-    <meta name="description" content="Personal website of Tran Hung Thinh."/>
+    <title>HarryTrn | Experience</title>
+    <meta name="description" content="Personal website of HarryTrn.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <script>
+        (() => {
+            let savedTheme = null;
+            try { savedTheme = localStorage.getItem('ero_theme'); } catch (error) { savedTheme = null; }
+            document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        })();
+    </script>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS (layout from itruonghai.github.io, background from eronguyen.github.io; both MIT) -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <style>
-        .research-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-    </style>
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="./" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="images/me.png" alt="Tran Hung Thinh"
+            <a href="index.html" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="images/me.png" alt="HarryTrn"
                     style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
                     onerror="this.style.display='none'">
-                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">Tran Hung Thinh</span>
+                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">HarryTrn</span>
             </a>
             <ul class="nav-links">
-                <li><a href="./">About</a></li>
+                <li><a href="index.html">About</a></li>
                 <li><a href="education.html">Education</a></li>
                 <li><a href="experience.html" class="active">Experience</a></li>
                 <li><a href="publication.html">Projects</a></li>
                 <li><a href="awards.html">Awards</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
             </ul>
-            <div style="display:flex;align-items:center;gap:0.6rem;">
-                <button class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                    <span>Night</span>
-                </button>
-                <button class="mobile-menu-btn" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
     <main>
-        <div class="research-header" style="margin-top: 2rem;">
+        <div class="page-header">
             <h1 class="text-gradient">Experience</h1>
-            <p style="color: var(--text-muted); max-width: 700px; margin: 1rem auto 0;">
-                Hands-on AI and computer vision work.
-            </p>
+            <p>Hands-on AI and computer vision work.</p>
         </div>
 
-        <section class="section reveal active particle-section" id="experience" style="padding-top: 0; position: relative; overflow: visible; isolation: isolate;">
-            <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+        <section class="section reveal active" id="experience" style="padding-top: 0;">
             <div class="education-timeline">
                 <div class="timeline-item">
                     <div class="timeline-logo">
-                        <img src="images/experience/company.png" alt="Company logo" onerror="this.style.display='none'">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
                     </div>
                     <div class="education-card">
                         <div class="education-card-header">
                             <div>
-                                <h3 class="school-name">AI Freelance Project</h3>
-                                <p class="degree-name">AI Freelancer - Vietnamese License Plate Recognition</p>
+                                <h3 class="school-name">Freelance AI Engineer</h3>
+                                <p class="degree-name">Private client · Vietnamese License Plate Recognition</p>
                             </div>
                             <div class="date-badge">Sep 2023 - Jan 2024</div>
                         </div>
                         <div class="education-card-body">
                             <ul>
-                                <li><i class="fas fa-bolt text-teal"></i> Vehicle and license plate detection with YOLOv8, with custom dataset training.</li>
-                                <li><i class="fas fa-bolt text-teal"></i> Plate text recognition with PaddleOCR (ONNXRuntime + TensorRT).</li>
-                                <li><i class="fas fa-bolt text-teal"></i> Real-time vehicle tracking with DeepSORT.</li>
+                                <li><i class="fas fa-bolt text-teal"></i> Delivered a vehicle and license plate recognition system to a paying client, from requirements to a working pipeline on video streams.</li>
+                                <li><i class="fas fa-bolt text-teal"></i> Trained YOLOv8 detectors on custom data, added PaddleOCR (ONNX Runtime + TensorRT) for plate text and DeepSORT for real-time vehicle tracking.</li>
                             </ul>
-                            <a href="https://github.com/vlu-lantran/AI_project" target="_blank" class="visit-btn">View Source</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +91,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Tran Hung Thinh. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
+        <p>&copy; 2026 HarryTrn. Built with HTML, CSS & JS.</p>
+        <p>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noopener noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noopener noreferrer">E-Ro Nguyen</a>.</p>
     </footer>
 
     <script src="js/app.js"></script>

@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarryTrn | Tracking</title>
+    <meta name="description" content="Personal website of HarryTrn.">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
-    <title>Tran Hung Thinh | Tracking</title>
-    <meta name="description" content="Personal website of Tran Hung Thinh.">
+    <script>
+        (() => {
+            let savedTheme = null;
+            try { savedTheme = localStorage.getItem('ero_theme'); } catch (error) { savedTheme = null; }
+            document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        })();
+    </script>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS (layout from itruonghai.github.io, background from eronguyen.github.io; both MIT) -->
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
-        .tracking-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
 
         .tracking-grid {
             display: grid;
@@ -32,6 +42,10 @@
             border-radius: 14px;
             background: var(--glass-bg);
             padding: 1rem;
+        }
+
+        .tracking-card-tall {
+            grid-row: span 2;
         }
 
         .tracking-card-wide {
@@ -345,63 +359,55 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="./" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="images/me.png" alt="Tran Hung Thinh"
+            <a href="index.html" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="images/me.png" alt="HarryTrn"
                     style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
                     onerror="this.style.display='none'">
-                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">Tran Hung Thinh</span>
+                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">HarryTrn</span>
             </a>
             <ul class="nav-links">
-                <li><a href="./">About</a></li>
+                <li><a href="index.html">About</a></li>
                 <li><a href="education.html">Education</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="publication.html">Projects</a></li>
                 <li><a href="awards.html">Awards</a></li>
+                <li><a href="tracking.html" class="active">Tracking</a></li>
             </ul>
-            <div style="display:flex;align-items:center;gap:0.6rem;">
-                <button class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                    <span>Night</span>
-                </button>
-                <button class="mobile-menu-btn" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
     <main>
-        <section class="section reveal active particle-section" id="tracking" data-github-user="TranThinh2003" data-leetcode-user="YOUR_LEETCODE_USERNAME" data-clustrmaps-token="" style="position: relative; overflow: visible;">
-            <canvas class="hero-particles"
-                style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+        <div class="page-header">
+            <h1 class="text-gradient">Tracking</h1>
+            <p>Progress dashboard for coding practice and open-source activity.</p>
+        </div>
 
-            <div class="tracking-header" style="margin-top: 2rem;">
-                <h1 class="text-gradient">Tracking</h1>
-                <p style="color: var(--text-muted); max-width: 760px; margin: 1rem auto 0;">
-                    Progress dashboard for coding practice and open-source activity.
-                </p>
-            </div>
+        <section class="section reveal active" id="tracking" data-github-user="HarryTrn" data-leetcode-user="Shikimorii" data-clustrmaps-token="">
+
 
             <div class="tracking-grid">
                 <article class="tracking-card">
                     <h2 class="tracking-title"><i class="fas fa-code text-teal"></i> LeetCode</h2>
                     <p class="tracking-meta" id="leetcode-status">Embedded LeetCode profile card.</p>
                     <div class="leetcode-card-wrap">
-                        <img id="leetcode-card-image" src="https://leetcard.jacoblin.cool/YOUR_LEETCODE_USERNAME?theme=dark&font=Karma" alt="LeetCode card for YOUR_LEETCODE_USERNAME">
+                        <img id="leetcode-card-image" src="https://leetcard.jacoblin.cool/Shikimorii?theme=dark&font=Karma" alt="LeetCode card for Shikimorii">
                     </div>
                     <div class="tracking-actions">
-                        <a class="tracking-link" id="lc-profile-link" href="https://leetcode.com/u/YOUR_LEETCODE_USERNAME/" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open LeetCode</a>
+                        <a class="tracking-link" id="lc-profile-link" href="https://leetcode.com/u/Shikimorii/" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open LeetCode</a>
                     </div>
                 </article>
 
-                <article class="tracking-card">
+                <article class="tracking-card tracking-card-tall">
                     <h2 class="tracking-title"><i class="fab fa-github text-teal"></i> GitHub Commits (still developing) </h2>
                     <p class="tracking-meta" id="github-status">Loading live stats...</p>
                     <div class="gh-spotlight">
                         <img class="gh-avatar" id="gh-avatar" src="images/me.png" alt="GitHub avatar">
                         <div>
                             <div class="gh-title-row">
-                                <span class="gh-name" id="gh-name">@TranThinh2003</span>
+                                <span class="gh-name" id="gh-name">@HarryTrn</span>
                                 <span class="gh-badge" id="gh-language">Language: --</span>
                             </div>
                             <div class="gh-meta-line"><span id="gh-followers">--</span> followers · <span id="gh-following">--</span> following</div>
@@ -428,27 +434,30 @@
                         </ul>
                     </div>
                     <div class="tracking-actions">
-                        <a class="tracking-link" id="gh-profile-link" href="https://github.com/TranThinh2003" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open GitHub</a>
+                        <a class="tracking-link" id="gh-profile-link" href="https://github.com/HarryTrn" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open GitHub</a>
                     </div>
                     <p class="tracking-updated" id="gh-updated">Updated: --</p>
                 </article>
 
-                <article class="tracking-card tracking-card-wide">
-                    <h2 class="tracking-title"><i class="fas fa-earth-americas text-teal"></i> Site Visitors (Worldwide)</h2>
-                    <p class="tracking-meta" id="visitor-status">Connect a map provider to show global visitors and total visits.</p>
-                    <div class="visitor-map-wrap">
-                        <div class="visitor-map-inner" id="visitor-map-container">
-                            Visitor map will appear here.
-                        </div>
+                <article class="tracking-card">
+                    <h2 class="tracking-title"><i class="fas fa-brain text-teal"></i> TensorTonic</h2>
+                    <p class="tracking-meta">ML algorithms implemented from scratch in Python + NumPy.</p>
+                    <div class="leetcode-card-wrap">
+                        <img src="https://www.tensortonic.com/api/badge/_shikimori_.svg" alt="TensorTonic stats for _shikimori_">
                     </div>
-                    <p class="tracking-note" id="visitor-note">Tip: set <code>data-clustrmaps-token</code> on <code>#tracking</code> to enable the world map widget.</p>
+                    <div class="tracking-actions">
+                        <a class="tracking-link" href="https://www.tensortonic.com/profile/_shikimori_" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open TensorTonic</a>
+                        <a class="tracking-link" href="https://github.com/HarryTrn/TensorTonic-Solutions" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Solutions</a>
+                    </div>
                 </article>
+
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Tran Hung Thinh. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
+        <p>&copy; 2026 HarryTrn. Built with HTML, CSS & JS.</p>
+        <p>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noopener noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noopener noreferrer">E-Ro Nguyen</a>.</p>
     </footer>
 
     <script src="js/app.js"></script>

@@ -2,706 +2,357 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicon.png">
-  <title>Tran Hung Thinh | Homepage</title>
-  <meta name="description" content="Personal website of Tran Hung Thinh.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarryTrn | Homepage</title>
+    <meta name="description" content="Personal website of HarryTrn.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <script>
+        (() => {
+            let savedTheme = null;
+            try { savedTheme = localStorage.getItem('ero_theme'); } catch (error) { savedTheme = null; }
+            document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        })();
+    </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
-  <style>
-    :root { 
-      --font-main: 'IBM Plex Sans', system-ui, sans-serif;
-    }
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    h1,
-    h2,
-    h3,
-    .logo,
-    .paper-card-title {
-      font-family: 'Space Grotesk', var(--font-main);
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 5vw, 4.2rem) !important;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.04em;
-      line-height: 1.02;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.15rem, 3vw, 1.75rem) !important;
-      margin-bottom: 1.6rem;
-      color: var(--text-secondary);
-      min-height: 2rem;
-    }
-
-    .hero-blurb {
-      font-size: 1.03rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.1rem;
-      max-width: 70ch;
-    }
-
-    .profile-image-wrapper {
-      width: 100%;
-      max-width: 340px;
-      aspect-ratio: 1;
-      margin: 0 auto;
-      border-radius: 50%;
-      position: relative;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .profile-image-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -10px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #0ea5e9, #0d9488, #06b6d4, #0ea5e9);
-      filter: blur(20px);
-      opacity: 0.7;
-      z-index: 1;
-      animation: spin 6s linear infinite;
-    }
-
-    .profile-image-container {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      padding: 8px;
-      background: linear-gradient(145deg, var(--accent-blue), var(--accent-teal), var(--accent-cyan));
-      position: relative;
-      z-index: 2;
-    }
-
-    .profile-image {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #ffffff;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .cta-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 0.95rem;
-      border: 1px solid var(--glass-border);
-      border-radius: 999px;
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.75);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.92rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    }
-
-    .cta-chip:hover {
-      text-decoration: none;
-      background: #eef9ff;
-      border-color: rgba(14, 165, 233, 0.35);
-      transform: translateY(-1px);
-    }
-
-    .cta-cv {
-      background: linear-gradient(90deg, #0284c7, #0ea5e9);
-      color: #f8fcff;
-      border-color: rgba(2, 132, 199, 0.35);
-    }
-
-    .cta-scholar {
-      background: linear-gradient(90deg, #1d4ed8, #2563eb);
-      color: #f5f8ff;
-      border-color: rgba(37, 99, 235, 0.35);
-    }
-
-    .cta-github {
-      background: linear-gradient(90deg, #111827, #374151);
-      color: #f9fafb;
-      border-color: rgba(55, 65, 81, 0.45);
-    }
-
-    .cta-linkedin {
-      background: linear-gradient(90deg, #0a66c2, #0ea5e9);
-      color: #f8fcff;
-      border-color: rgba(10, 102, 194, 0.4);
-    }
-
-    .cta-cv:hover,
-    .cta-scholar:hover,
-    .cta-github:hover,
-    .cta-linkedin:hover {
-      filter: brightness(1.08);
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
-    }
-
-    html[data-theme="dark"] .cta-cv {
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      color: #02121d;
-    }
-
-    html[data-theme="dark"] .cta-scholar {
-      background: linear-gradient(90deg, #60a5fa, #3b82f6);
-      color: #06132c;
-    }
-
-    html[data-theme="dark"] .cta-github {
-      background: linear-gradient(90deg, #4b5563, #9ca3af);
-      color: #0b1220;
-    }
-
-    html[data-theme="dark"] .cta-linkedin {
-      background: linear-gradient(90deg, #38bdf8, #0a66c2);
-      color: #001a36;
-    }
-
-    .inline-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: 1rem;
-      width: 100%;
-      max-width: 420px;
-    }
-
-    .stat-card {
-      border: 1px solid var(--glass-border);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.72);
-      padding: 0.65rem;
-      text-align: center;
-    }
-
-    .stat-value {
-      display: block;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .stat-label {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .timeline-list {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .timeline-entry {
-      border-left: 3px solid rgba(14, 165, 233, 0.6);
-      padding-left: 1rem;
-    }
-
-    .timeline-entry h3 {
-      margin-bottom: 0.35rem;
-      font-size: 1.2rem;
-    }
-
-    .exp-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.35rem;
-    }
-
-    .exp-main {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      min-width: 0;
-      flex: 1 1 360px;
-    }
-
-    .exp-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      object-fit: contain;
-      border: 1px solid var(--glass-border);
-      background: rgba(255, 255, 255, 0.9);
-      padding: 3px;
-      flex: 0 0 auto;
-    }
-
-    .timeline-meta {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .timeline-meta-row {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.8rem;
-      flex-wrap: nowrap;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 0;
-      margin-left: auto;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .news-board {
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      padding: 0.35rem;
-    }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 0.9rem;
-      padding: 0.9rem 0.85rem;
-      border-radius: 12px;
-      align-items: center;
-    }
-
-    .news-item + .news-item {
-      border-top: 1px dashed var(--glass-border);
-    }
-
-    .news-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, rgba(14, 165, 233, 0.2), rgba(13, 148, 136, 0.2));
-      font-size: 1.02rem;
-      line-height: 1;
-    }
-
-    .news-line {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .news-date {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #0b3554;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      background: linear-gradient(90deg, rgba(14, 165, 233, 0.22), rgba(13, 148, 136, 0.22));
-      border: 1px solid rgba(14, 165, 233, 0.3);
-      border-radius: 999px;
-      padding: 0.17rem 0.55rem;
-      white-space: nowrap;
-    }
-
-    .news-text {
-      margin: 0;
-      color: var(--text-primary);
-      line-height: 1.58;
-    }
-
-    html[data-theme="dark"] .news-board {
-      background: rgba(10, 19, 34, 0.88);
-      border-color: rgba(148, 163, 184, 0.35);
-    }
-
-    html[data-theme="dark"] .news-item + .news-item {
-      border-top-color: rgba(148, 163, 184, 0.35);
-    }
-
-    html[data-theme="dark"] .news-item {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    html[data-theme="dark"] .news-text {
-      color: #e8f0ff;
-    }
-
-    html[data-theme="dark"] .news-date {
-      color: #c8ecff;
-      background: linear-gradient(90deg, rgba(14, 165, 233, 0.34), rgba(13, 148, 136, 0.28));
-      border-color: rgba(94, 234, 212, 0.42);
-    }
-
-    html[data-theme="dark"] .news-icon {
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.28) inset;
-    }
-
-    .scroll-down-indicator {
-      position: absolute;
-      bottom: -38px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--accent-teal);
-      font-size: 1.4rem;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    @keyframes bounce {
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0) translateX(-50%);
-      }
-
-      40% {
-        transform: translateY(-8px) translateX(-50%);
-      }
-
-      60% {
-        transform: translateY(-5px) translateX(-50%);
-      }
-    }
-
-    @media (max-width: 960px) {
-      .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 2.2rem;
-        text-align: center;
-      }
-
-      .hero-blurb {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-row,
-      .inline-stats {
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .profile-image-wrapper {
-        max-width: 280px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .inline-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .paper-card {
-        min-width: 300px;
-      }
-
-      .timeline-meta-row {
-        width: 100%;
-        justify-content: flex-start;
-        text-align: left;
-      }
-    }
-  </style>
+    <!-- Shared CSS (layout from itruonghai.github.io, background from eronguyen.github.io; both MIT) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .home section[id] { scroll-margin-top: calc(var(--nav-height) + 1rem); }
+        .home-hero { padding: 3.5rem 0 4rem; }
+        .hero-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+        .hero-eyebrow { font: 600 .72rem/1.4 var(--font-mono); letter-spacing: .12em; color: var(--accent-teal); }
+        .hero-eyebrow { margin-bottom: 1rem; }
+        .hero-title { font-size: clamp(2.8rem, 4.4vw, 4.2rem); letter-spacing: -.06em; line-height: 1.08; margin-bottom: .7rem; }
+        .hero-subtitle { min-height: 1.5em; font-size: clamp(1.1rem, 1.7vw, 1.5rem); font-weight: 600; line-height: 1.4; color: var(--accent-teal); margin-bottom: 1.7rem; }
+        .typewriter-cursor { display: inline-block; margin-left: 2px; animation: cursor-blink 1s steps(1) infinite; }
+        @keyframes cursor-blink { 50% { opacity: 0; } }
+        .hero-intro { font-size: .98rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: .95rem; }
+        .hero-intro strong { color: var(--text-primary); }
+        .hero-actions { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+        .hero-actions a { font-size: .92rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--accent-teal); padding-bottom: .15rem; }
+        .hero-actions a:hover { color: var(--accent-teal); }
+        .hero-portrait-column { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+        .profile-image-wrapper { position: relative; width: min(100%, 300px); aspect-ratio: 4 / 5; perspective: 900px; }
+        .portrait-accent { position: absolute; inset: 12px -10px -10px 12px; border: 1px solid var(--accent-teal); border-radius: 8px; opacity: .55; }
+        .profile-image-container { position: absolute; inset: 0; transform: rotateY(-3deg); transition: transform .35s ease; border-radius: 8px; overflow: hidden; box-shadow: 0 18px 40px -28px var(--shadow-color); }
+        .profile-image-wrapper:hover .profile-image-container { transform: rotateY(0) translateY(-3px); }
+        .profile-image { width: 100%; height: 100%; object-fit: cover; }
+        .social-links { display: flex; gap: 1.5rem; }
+        .social-links a { display: inline-block; font-size: 1.3rem; color: var(--text-secondary); transition: transform .3s, color .3s; }
+        .social-links a:hover { color: var(--accent-teal); transform: scale(1.2) translateY(-3px); text-decoration: none; }
+        /* Experience list (itruonghai.github.io), with a logo and the dates on the right. */
+        .experience-list { display: flex; flex-direction: column; gap: 2.75rem; box-shadow: 0 4px 20px rgba(0, 0, 0, .03); }
+        .experience-item { --exp-color: var(--accent-blue); position: relative; padding-left: 2rem; border-left: 2px solid var(--exp-color); }
+        .experience-item:nth-child(2) { --exp-color: var(--accent-cyan); }
+        .experience-item:nth-child(3) { --exp-color: var(--accent-teal); }
+        /* Dot sits level with the middle of the logo. */
+        .experience-item::before { content: ''; position: absolute; left: -7px; top: 17px; width: 12px; height: 12px; border-radius: 50%; background: var(--exp-color); }
+        .exp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem 1.5rem; flex-wrap: wrap; }
+        .exp-main { display: flex; align-items: flex-start; gap: 1rem; min-width: 0; }
+        .exp-logo { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, .92); flex: 0 0 auto; display: grid; place-items: center; font-size: 1.2rem; color: #0d9488; }
+        .experience-item h3 { margin-bottom: .3rem; font-size: 1.3rem; line-height: 1.3; }
+        .experience-meta { color: var(--text-muted); font-size: .95rem; font-weight: 500; line-height: 1.5; }
+        .exp-date { color: var(--text-muted); font-size: .95rem; font-weight: 500; white-space: nowrap; padding-top: .2rem; }
+        .experience-item ul { margin-top: 1.4rem; padding-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; }
+        .experience-item li + li { margin-top: .65rem; }
+        .section-heading { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-medium); padding-bottom: 1rem; margin-bottom: 1.6rem; flex-wrap: wrap; }
+        .section-heading h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -.055em; line-height: 1.1; }
+        .section-heading a { margin-left: auto; font-size: .9rem; font-weight: 600; text-decoration: none; }
+        .news-list { list-style: none; padding: .4rem 1.5rem; background: var(--surface-card-solid); border: 1px solid var(--border-soft); border-radius: 8px; box-shadow: var(--glass-shadow); }
+        .news-list li { display: grid; grid-template-columns: 84px 26px minmax(0, 1fr); align-items: baseline; gap: .75rem; padding: .85rem 0; }
+        .news-list li + li { border-top: 1px solid var(--border-soft); }
+        .news-list time { font: 600 .82rem var(--font-mono); color: var(--accent-teal); white-space: nowrap; }
+        .news-icon { font-size: 1.02rem; line-height: 1; }
+        .news-list p { font-size: .92rem; line-height: 1.55; color: var(--text-secondary); }
+        .news-award { color: var(--text-primary); white-space: nowrap; background: color-mix(in srgb, var(--accent-teal) 12%, transparent); border-radius: 3px; padding: .08rem .22rem; }
+        #featured-projects .projects-grid { margin-top: 1rem; }
+        #featured-projects .paper-card { min-width: min(350px, 82vw); }
+        #featured-projects .paper-card-top { min-height: 110px; }
+        #featured-projects .paper-card-image { height: 200px; aspect-ratio: auto; background: #fff; }
+        #featured-projects .paper-card-image img { object-fit: cover; object-position: center; }
+        .home .carousel-btn.left { left: -30px; }
+        .home .carousel-btn.right { right: -30px; }
+        @media (max-width: 820px) {
+            .home-hero { padding: 2.5rem 0 4rem; }
+            .hero-layout { grid-template-columns: 1fr; }
+            .hero-portrait-column { flex-direction: row; justify-content: center; }
+            .profile-image-wrapper { width: min(38vw, 185px); }
+            .hero-title { font-size: clamp(2.8rem, 7vw, 4rem); }
+            .exp-date { width: 100%; padding: 0 0 0 calc(46px + 1rem); }
+        }
+        @media (max-width: 520px) {
+            .home .reveal, .home .reveal.active { transform: none; }
+            .hero-title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
+            .hero-eyebrow { font-size: .63rem; }
+            .hero-subtitle { font-size: 1.08rem; min-height: 2.8em; }
+            .hero-portrait-column { flex-direction: column; }
+            .profile-image-wrapper { width: min(55vw, 210px); }
+            .section-index { width: 100%; }
+            .news-list { padding: .4rem 1rem; }
+            .news-list li { grid-template-columns: 74px 22px minmax(0, 1fr); gap: .45rem; align-items: start; }
+            .news-list p { font-size: .88rem; }
+            .news-award { white-space: normal; }
+            #featured-projects .paper-card { flex: 0 0 100%; width: 100%; min-width: 0; max-width: 100%; }
+            #featured-projects .paper-card-image { height: auto; aspect-ratio: 2.4 / 1; }
+            #featured-projects .badge { top: 8px; left: 8px; padding: 4px 7px; border-radius: 5px; font-size: .65rem; }
+            #experience .experience-list { padding: 1.5rem; }
+            .experience-item { padding-left: 1.25rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .typewriter-cursor { animation: none; }
+            .profile-image-container { transition: none; }
+        }
+    </style>
 </head>
 
-<body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="./" class="logo text-gradient" style="display:flex;align-items:center;gap:0.75rem;">
-        <img src="images/me.png" alt="Tran Hung Thinh" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" onerror="this.style.display='none'">
-        <span style="font-size:1.05rem;text-transform:none;letter-spacing:0;">Tran Hung Thinh</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">About</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="publication.html">Projects</a></li>
-        <li><a href="awards.html">Awards</a></li>
-      </ul>
-      <div style="display:flex;align-items:center;gap:0.6rem;">
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-          <span>Night</span>
-        </button>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
+<body class="home">
 
-  <main>
-    <section class="section reveal active particle-section" id="about" style="position: relative; overflow: visible; isolation: isolate;">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-
-      <div class="hero-layout" style="position:relative;z-index:1;">
-        <div class="hero-text">
-          <h1 class="hero-title">Tran Hung Thinh</h1>
-          <h2 class="hero-subtitle text-gradient">
-            <span class="typewriter-text"></span><span class="typewriter-cursor">|</span>
-          </h2>
-
-          <p class="hero-blurb">
-            I studied at <strong>Van Lang University</strong> (2021 - 2025) and I am looking for an
-            <strong>Artificial Intelligence internship</strong> where I can apply my knowledge, gain practical experience,
-            and contribute to real-world AI / Machine Learning projects.
-          </p>
-          <p class="hero-blurb">
-            I enjoy <strong>computer vision</strong> on edge devices and <strong>competitive programming</strong>
-            (ICPC Asia Regional 2023 Honorable Mention).
-          </p>
-
-          <div class="cta-row">
-            <a class="cta-chip cta-github" href="https://github.com/TranThinh2003" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
-            <a class="cta-chip" href="mailto:tranthinh150503@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-          </div>
-
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="images/me.png" alt="HarryTrn"
+                    style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
+                    onerror="this.style.display='none'">
+                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">HarryTrn</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="publication.html">Projects</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+    </nav>
 
-        <div style="display:flex;flex-direction:column;align-items:center;gap:1.6rem;">
-          <div class="profile-image-wrapper">
-            <div class="profile-image-container">
-              <img src="images/me.png" alt="Portrait of Tran Hung Thinh" class="profile-image" onerror="this.style.display='none'">
+    <!-- Main Content -->
+    <main>
+        <!-- Hero / About Section -->
+        <section class="section reveal active home-hero" id="about" data-rail-label="About">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <p class="hero-eyebrow">LLM AGENTS · BACKEND SYSTEMS</p>
+                    <h1 class="hero-title">HarryTrn<span class="hero-period">.</span></h1>
+                    <p class="hero-subtitle"><span class="typewriter-text">AI Engineer</span><span class="typewriter-cursor" aria-hidden="true">|</span></p>
+                    <p class="hero-intro">
+                        I am an <strong>AI Engineer</strong> focused on <strong>LLM agents</strong> and <strong>backend systems</strong>, based in Ho Chi Minh City.
+                        I built and deployed <a href="https://automaily.vercel.app/" target="_blank" rel="noopener noreferrer">MailyFlow</a>, a multi-agent email research platform
+                        with human approval and 700+ automated tests.
+                    </p>
+                    <p class="hero-intro">
+                        I hold a Bachelor of Information Technology from <a href="https://www.vlu.edu.vn/" target="_blank" rel="noopener noreferrer">Van Lang University</a> (2021 – 2025).
+                        My earlier work was in <strong>computer vision on edge devices</strong> (YOLO, ONNX), and I received an Honorable Mention
+                        at the <a href="awards.html">ICPC Asia Regional Contest 2023</a>.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="publication.html">Projects ↗</a>
+                        <a href="education.html">Education ↗</a>
+                        <a href="https://drive.google.com/file/d/1TU6G3ELrx6MbQpPZMusmb7kpGNQzzO2a/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV ↗</a>
+                    </div>
+                </div>
+
+                <div class="hero-portrait-column">
+                    <div class="profile-image-wrapper">
+                        <div class="portrait-accent" aria-hidden="true"></div>
+                        <div class="profile-image-container">
+                            <img src="images/portrait.jpg" alt="Portrait of HarryTrn" class="profile-image" fetchpriority="high">
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/HarryTrn" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/tr%E1%BA%A7n-th%E1%BB%8Bnh-2d3y1206/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://drive.google.com/file/d/1TU6G3ELrx6MbQpPZMusmb7kpGNQzzO2a/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="CV" title="CV"><i class="fas fa-file-lines" aria-hidden="true"></i></a>
+                        <a href="mailto:tranthinh150503@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-        </div>
-      </div>
 
-      <!-- <div class="scroll-down-indicator" onclick="document.getElementById('news').scrollIntoView({ behavior: 'smooth' });">
-        <i class="fas fa-chevron-down"></i>
-      </div> -->
-    </section>
+        </section>
 
-    <section class="section reveal particle-section" id="news" style="position: relative; overflow: visible; isolation: isolate;">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-      <h2 style="font-size:2.1rem;border-bottom:2px solid var(--glass-border);padding-bottom:0.5rem;margin-bottom:0.5rem;">News</h2>
-      <!-- <p style="color:var(--text-muted);margin-bottom:1rem;">Recent updates and milestones.</p> -->
-      <div class="news-board">
-        <article class="news-item">
-          <div class="news-icon">🎓</div>
-          <div>
-            <p class="news-text news-line"><span class="news-date">Jun 2025</span> Completed my graduation thesis <a href="https://github.com/TranThinh2003/No-One-left-on-car-NOC" target="_blank" rel="noreferrer">End-to-End AI System for In-Vehicle Safety</a></p>
-          </div>
-        </article>
-        <article class="news-item">
-          <div class="news-icon">🏆</div>
-          <div>
-            <p class="news-text news-line"><span class="news-date">Dec 2023</span> Received an Honorable Mention at the ICPC Asia Regional Contest - Hue City.</p>
-          </div>
-        </article>
-        <article class="news-item">
-          <div class="news-icon">🥉</div>
-          <div>
-            <p class="news-text news-line"><span class="news-date">Oct 2023</span> Awarded the Consolation Prize at the ICPC Southern Vietnam Regional Contest.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section reveal particle-section" id="featured-projects" style="position: relative; overflow: visible; isolation: isolate;">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-      <h2 style="font-size:2.1rem;border-bottom:2px solid var(--glass-border);padding-bottom:0.5rem;margin-bottom:0.5rem;">Selected Projects</h2>
-      <div class="projects-carousel-container" style="position:relative;padding:0 10px;">
-        <button class="carousel-btn left" onclick="scrollCarousel(-1)" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
-
-        <div class="projects-grid" id="projectsCarousel">
-          <article class="paper-card paper-card-link" data-card-url="https://github.com/TranThinh2003/No-One-left-on-car-NOC" tabindex="0" role="link" aria-label="Open End-to-End AI System for In-Vehicle Safety on GitHub">
-            <div class="paper-card-image">
-              <span class="badge">Graduation Thesis</span>
-              <img src="images/publications/placeholder.svg" alt="End-to-End AI System for In-Vehicle Safety teaser">
+        <!-- Featured Projects Section -->
+        <section class="section reveal" id="featured-projects">
+            <div class="section-heading">
+                <span class="section-index">01 / SELECTED WORK</span>
+                <h2>Featured projects<span class="hero-period">.</span></h2>
+                <a href="publication.html">All projects ↗</a>
             </div>
-            <div class="paper-card-text">
-              <div class="paper-card-top">
-                <a class="paper-card-title" href="https://github.com/TranThinh2003/No-One-left-on-car-NOC" target="_blank" rel="noreferrer">End-to-End AI System for In-Vehicle Safety</a>
-                <p class="paper-card-authors">Dec 2024 - Jun 2025</p>
-              </div>
-              <p class="paper-card-desc">Computer vision system on an Orange Pi 5 that prevents in-vehicle child heatstroke, from model research to a working proof-of-concept. Optimized YOLOv11n with PyTorch and ONNX to reach real-time performance (&gt; 18 FPS) at 40.73% mAP.</p>
-              <div class="paper-card-actions">
-                <a class="paper-card-btn" href="https://github.com/TranThinh2003/No-One-left-on-car-NOC" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
+
+            <div class="projects-carousel-container" style="position: relative; padding: 0 10px;">
+                <button class="carousel-btn left" onclick="scrollCarousel(-1)" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="projects-grid" id="projectsCarousel">
+                    <div class="paper-card">
+                        <div class="paper-card-image">
+                            <div class="badge">LLM Agents 2026</div>
+                            <img src="images/projects/mailyflow.webp" alt="MailyFlow – AI Email Research &amp; Briefing Platform" loading="lazy">
+                        </div>
+                        <div class="paper-card-text">
+                            <div class="paper-card-top">
+                                <a href="https://automaily.vercel.app/" target="_blank" rel="noopener noreferrer" class="paper-card-title">MailyFlow – AI Email Research &amp; Briefing Platform</a>
+                                <p class="paper-card-authors"><strong>HarryTrn</strong> · Backend &amp; AI Engineer · Aug 2026 – Present</p>
+                            </div>
+                            <a href="https://automaily.vercel.app/" target="_blank" rel="noopener noreferrer" class="paper-card-btn"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+                            <p class="paper-card-desc">Multi-agent LLM pipeline that triages inbound customer emails, runs four parallel research scans and writes cited company briefings, with human approval before any email is drafted or sent. FastAPI backend on Render and Supabase PostgreSQL, validated with 700+ automated tests.</p>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="paper-card-image">
+                            <div class="badge">Backend 2026</div>
+                            <img src="images/publications/placeholder.svg" alt="Travelink – AI Itinerary Planner" loading="lazy">
+                        </div>
+                        <div class="paper-card-text">
+                            <div class="paper-card-top">
+                                <a href="https://travelink-alpha.vercel.app/" target="_blank" rel="noopener noreferrer" class="paper-card-title">Travelink – AI Itinerary Planner</a>
+                                <p class="paper-card-authors"><strong>HarryTrn</strong> · Backend Engineer (2-person team) · Apr 2026 – Present</p>
+                            </div>
+                            <a href="https://travelink-alpha.vercel.app/" target="_blank" rel="noopener noreferrer" class="paper-card-btn"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+                            <p class="paper-card-desc">Itinerary engine that groups places into daily plans with K-Means and orders visits with a greedy TSP heuristic; Gemini edits arrive as JSON operations that a validator checks. Contract-first FastAPI backend on Supabase (PostgreSQL, PostGIS).</p>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="paper-card-image">
+                            <div class="badge">RAG 2026</div>
+                            <img src="images/publications/placeholder.svg" alt="ThanhXuan Agent – Personal AI Assistant" loading="lazy">
+                        </div>
+                        <div class="paper-card-text">
+                            <div class="paper-card-top">
+                                <span class="paper-card-title">ThanhXuan Agent – Personal AI Assistant</span>
+                                <p class="paper-card-authors"><strong>HarryTrn</strong> · Fork Maintainer &amp; AI Engineer · Sep 2026 – Oct 2026</p>
+                            </div>
+                            <p class="paper-card-desc">Fork of Waku, an open-source local-first AI agent, extended with document RAG, chat attachments, web fetch and automations while changing only 50 upstream lines. 326 deterministic tests; p95 25 ms RAG search over 4,000 chunks.</p>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="paper-card-image">
+                            <div class="badge">Thesis 2025</div>
+                            <img src="images/publications/placeholder.svg" alt="End-to-End AI System for In-Vehicle Safety" loading="lazy">
+                        </div>
+                        <div class="paper-card-text">
+                            <div class="paper-card-top">
+                                <a href="https://github.com/HarryTrn/No-One-left-on-car-NOC" target="_blank" rel="noopener noreferrer" class="paper-card-title">End-to-End AI System for In-Vehicle Safety</a>
+                                <p class="paper-card-authors"><strong>HarryTrn</strong> · AI Engineer (2-person team) · Dec 2024 – May 2025</p>
+                            </div>
+                            <a href="https://github.com/HarryTrn/No-One-left-on-car-NOC" target="_blank" rel="noopener noreferrer" class="paper-card-btn"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                            <p class="paper-card-desc">Computer vision system on an Orange Pi 5 that detects children left in vehicles to prevent heatstroke. Optimized YOLOv11n with PyTorch and ONNX to reach real-time performance (&gt; 18 FPS) at 40.73% mAP on edge hardware.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn right" onclick="scrollCarousel(1)" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-          </article>
+        </section>
 
-          <article class="paper-card paper-card-link" data-card-url="https://github.com/TranThinh2003/Kosmelyn_App" tabindex="0" role="link" aria-label="Open AI Skin Analysis App on GitHub">
-            <div class="paper-card-image">
-              <span class="badge">Google AI Developer Challenge</span>
-              <img src="images/publications/placeholder.svg" alt="AI Skin Analysis App teaser">
+        <!-- News Section -->
+        <section class="section reveal" id="news">
+            <div class="section-heading">
+                <span class="section-index">02 / MILESTONES</span>
+                <h2>Latest news<span class="hero-period">.</span></h2>
             </div>
-            <div class="paper-card-text">
-              <div class="paper-card-top">
-                <a class="paper-card-title" href="https://github.com/TranThinh2003/Kosmelyn_App" target="_blank" rel="noreferrer">AI Skin Analysis App</a>
-                <p class="paper-card-authors">Mar 2024 - May 2024</p>
-              </div>
-              <p class="paper-card-desc">Mobile app that detects facial skin issues with the Gemini API, then queries Firebase to recommend suitable skincare products in real time.</p>
-              <div class="paper-card-actions">
-                <a class="paper-card-btn" href="https://github.com/TranThinh2003/Kosmelyn_App" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
+            <ul class="news-list">
+                <li><time datetime="2026-09">09.2026</time><span class="news-icon" aria-hidden="true">🤖</span><p>Started <strong>ThanhXuan Agent</strong>, a fork of the open-source Waku agent with document RAG, chat attachments and automations.</p></li>
+                <li><time datetime="2026-08">08.2026</time><span class="news-icon" aria-hidden="true">📬</span><p>Started <a href="https://automaily.vercel.app/" target="_blank" rel="noopener noreferrer">MailyFlow</a>, a multi-agent email research platform with human approval, now deployed with 700+ automated tests.</p></li>
+                <li><time datetime="2026-04">04.2026</time><span class="news-icon" aria-hidden="true">🗺️</span><p>Started <a href="https://travelink-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Travelink</a>, an AI itinerary planner, as backend engineer in a two-person team.</p></li>
+                <li><time datetime="2025-05">05.2025</time><span class="news-icon" aria-hidden="true">🎓</span><p>Completed my graduation thesis, <a href="https://github.com/HarryTrn/No-One-left-on-car-NOC" target="_blank" rel="noopener noreferrer">End-to-End AI System for In-Vehicle Safety</a>, and my Bachelor of IT at Van Lang University.</p></li>
+                <li><time datetime="2023-12">12.2023</time><span class="news-icon" aria-hidden="true">🏆</span><p>Received an <strong class="news-award">Honorable Mention</strong> at the ICPC Asia Regional Contest - Hue City.</p></li>
+                <li><time datetime="2023-10">10.2023</time><span class="news-icon" aria-hidden="true">🥉</span><p>Awarded the <strong class="news-award">Consolation Prize</strong> at the ICPC Southern Vietnam Regional Contest.</p></li>
+            </ul>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section reveal" id="experience" data-rail-label="Experience">
+            <div class="section-heading">
+                <span class="section-index">03 / EXPERIENCE</span>
+                <h2>Where I’ve worked<span class="hero-period">.</span></h2>
+                <a href="experience.html">All experience ↗</a>
             </div>
-          </article>
-
-          <article class="paper-card paper-card-link" data-card-url="https://github.com/vlu-lantran/AI_project" tabindex="0" role="link" aria-label="Open Vietnamese License Plate Recognition on GitHub">
-            <div class="paper-card-image">
-              <span class="badge">AI Freelance</span>
-              <img src="images/publications/placeholder.svg" alt="Vietnamese License Plate Recognition teaser">
+            <div class="glass-card experience-list">
+                <div class="experience-item">
+                    <div class="exp-head">
+                        <div class="exp-main">
+                            <span class="exp-logo" aria-hidden="true"><i class="fas fa-briefcase"></i></span>
+                            <div>
+                                <h3>Freelance AI Engineer</h3>
+                                <p class="experience-meta">Private client · Vietnamese License Plate Recognition</p>
+                            </div>
+                        </div>
+                        <span class="exp-date">Sep 2023 – Jan 2024</span>
+                    </div>
+                    <ul>
+                        <li>Delivered a vehicle and license plate recognition system to a paying client, from requirements to a working pipeline on video streams.</li>
+                        <li>Trained YOLOv8 detectors on custom data, added PaddleOCR (ONNX Runtime + TensorRT) for plate text and DeepSORT for real-time vehicle tracking.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="paper-card-text">
-              <div class="paper-card-top">
-                <a class="paper-card-title" href="https://github.com/vlu-lantran/AI_project" target="_blank" rel="noreferrer">Vietnamese License Plate Recognition</a>
-                <p class="paper-card-authors">Sep 2023 - Jan 2024</p>
-              </div>
-              <p class="paper-card-desc">Vehicle and license plate detection with YOLOv8 (custom dataset training), PaddleOCR on ONNXRuntime + TensorRT for plate text, and DeepSORT for real-time tracking.</p>
-              <div class="paper-card-actions">
-                <a class="paper-card-btn" href="https://github.com/vlu-lantran/AI_project" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        </section>
 
-        <button class="carousel-btn right" onclick="scrollCarousel(1)" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </section>
+    </main>
 
-    <section class="section reveal particle-section" id="experience" style="position: relative; overflow: visible; isolation: isolate;">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-      <h2 style="font-size:2.1rem;border-bottom:2px solid var(--glass-border);padding-bottom:0.5rem;margin-bottom:1.6rem;">Experience</h2>
-      <div class="glass-card">
-        <div class="timeline-list">
-          <article class="timeline-entry">
-            <div class="exp-head">
-              <div class="exp-main">
-                <h3>AI Freelancer - Vietnamese License Plate Recognition</h3>
-              </div>
-              <div class="timeline-meta-row">
-                <span>Sep 2023 - Jan 2024</span>
-              </div>
-            </div>
-            <p>Built vehicle and license plate detection (YOLOv8), plate text recognition (PaddleOCR, ONNXRuntime + TensorRT) and real-time tracking (DeepSORT).</p>
-          </article>
+    <footer>
+        <p>&copy; 2026 HarryTrn. Built with HTML, CSS & JS.</p>
+        <p>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noopener noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noopener noreferrer">E-Ro Nguyen</a>.</p>
+    </footer>
 
-          
-        </div>
-      </div>
-    </section>
+    <script src="js/app.js"></script>
 
-    <section class="section reveal particle-section" id="skills" style="position: relative; overflow: visible; isolation: isolate;">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-      <h2 style="font-size:2.1rem;border-bottom:2px solid var(--glass-border);padding-bottom:0.5rem;margin-bottom:1.6rem;">Skills</h2>
-      <div class="glass-card">
-        <p><strong>Programming Languages:</strong> Python, Java, C++</p>
-        <p><strong>Technologies:</strong> PyTorch, TensorFlow, OpenCV, Scikit-learn, Flask, Firebase, MySQL, MS SQL</p>
-        <p><strong>Tools:</strong> Visual Studio Code, Jupyter, Git</p>
-      </div>
-    </section>
+    <!-- Handle Drag-to-Scroll for Projects Grid -->
+    <script>
+        const slider = document.querySelector('.projects-grid');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-  </main>
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
 
-  <footer>
-    <p>&copy; 2026 Tran Hung Thinh. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
-  </footer>
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
 
-  <script src="js/app.js"></script>
-  <script>
-    const slider = document.querySelector('.projects-grid');
-    if (slider) {
-      let isDown = false;
-      let startX;
-      let scrollLeft;
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
 
-      slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.classList.add('active');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
 
-      slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.classList.remove('active');
-      });
-
-      slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.classList.remove('active');
-      });
-
-      slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    }
-
-    function scrollCarousel(direction) {
-      if (!slider) return;
-      const firstCard = slider.querySelector('.paper-card');
-      if (!firstCard) return;
-      const cardWidth = firstCard.offsetWidth;
-      const gap = parseFloat(getComputedStyle(slider).gap) || 0;
-      const scrollAmount = (cardWidth + gap) * direction;
-      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-
-    const clickableCards = document.querySelectorAll('.paper-card-link');
-    clickableCards.forEach((card) => {
-      const url = card.getAttribute('data-card-url');
-      if (!url) return;
-
-      card.style.cursor = 'pointer';
-
-      card.addEventListener('click', (event) => {
-        if (event.target.closest('a, button')) return;
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
-
-      card.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        event.preventDefault();
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
-    });
-  </script>
+        function scrollCarousel(direction) {
+            const cardWidth = slider.querySelector('.paper-card').offsetWidth;
+            const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+            slider.scrollBy({ left: (cardWidth + gap) * direction, behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>

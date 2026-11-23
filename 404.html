@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicon.png">
-  <title>Tran Hung Thinh | 404</title>
-  <meta name="description" content="Personal website of Tran Hung Thinh.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarryTrn | 404</title>
+    <meta name="description" content="Personal website of HarryTrn.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <script>
+        (() => {
+            let savedTheme = null;
+            try { savedTheme = localStorage.getItem('ero_theme'); } catch (error) { savedTheme = null; }
+            document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        })();
+    </script>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS (layout from itruonghai.github.io, background from eronguyen.github.io; both MIT) -->
+    <link rel="stylesheet" href="css/styles.css">
 
   <style>
     .not-found {
@@ -85,35 +99,29 @@
 
 <body>
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="./" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
-        <img src="images/me.png" alt="Tran Hung Thinh"
-          style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
-          onerror="this.style.display='none'">
-        <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">Tran Hung Thinh</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="./">About</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="publication.html">Projects</a></li>
-        <li><a href="awards.html">Awards</a></li>
-      </ul>
-      <div style="display:flex;align-items:center;gap:0.6rem;">
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-          <span>Night</span>
-        </button>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo text-gradient" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="images/me.png" alt="HarryTrn"
+                    style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"
+                    onerror="this.style.display='none'">
+                <span style="font-size: 1.1rem; text-transform: none; letter-spacing: 0;">HarryTrn</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="publication.html">Projects</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
   <main>
-    <section class="section reveal active not-found particle-section">
-      <canvas class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <section class="section reveal active not-found">
       <div class="not-found-card">
         <div class="not-found-code text-gradient">404</div>
         <h1 class="not-found-title">Page Not Found</h1>
@@ -122,7 +130,7 @@
         </p>
         <div class="not-found-actions">
           <a class="not-found-btn primary" href="./"><i class="fas fa-house"></i>Home</a>
-          <a class="not-found-btn" href="publication.html"><i class="fas fa-book"></i>Publications</a>
+          <a class="not-found-btn" href="publication.html"><i class="fas fa-book"></i>Projects</a>
           <a class="not-found-btn" href="experience.html"><i class="fas fa-briefcase"></i>Experience</a>
         </div>
       </div>
@@ -130,8 +138,9 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Tran Hung Thinh. Built with HTML, CSS & JS.<br>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noreferrer">E-Ro Nguyen</a>.</p>
-  </footer>
+        <p>&copy; 2026 HarryTrn. Built with HTML, CSS & JS.</p>
+        <p>Based on the webpage style by <a href="https://itruonghai.github.io/" target="_blank" rel="noopener noreferrer">Hai Truong-Nguyen</a> and <a href="https://github.com/eronguyen/eronguyen.github.io" target="_blank" rel="noopener noreferrer">E-Ro Nguyen</a>.</p>
+    </footer>
 
   <script src="js/app.js"></script>
 </body>
